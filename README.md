@@ -1,4 +1,4 @@
-# Real-Time Object Detection System
+# Sentinel - Real-Time Object Detection System
 
 ## From SSD MobileNet (Caffe) to YOLOv8
 

@@ -1,8 +1,22 @@
+# Python
 __pycache__/
 *.pyc
-*.pt
-*.caffemodel
-*.avi
-*.mp4
 venv/
+
+# Node
+node_modules/
+
+# Expo
+.expo/
+
+# Environment
 .env
+
+# AI Models
+*.pt
+*.onnx
+*.tflite
+
+# OS
+.DS_Store
+Thumbs.db
