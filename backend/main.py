@@ -1,5 +1,9 @@
 from fastapi import FastAPI
 
+from app.api.detections import (
+    router as detection_router
+)
+
 from app.db.postgres import engine, Base
 from app.models.sql.user import User
 
@@ -21,6 +25,12 @@ app.include_router(
     auth_router,
     prefix="/auth",
     tags=["Authentication"]
+)
+
+app.include_router(
+    detection_router,
+    prefix="/detections",
+    tags=["Detections"]
 )
 
 

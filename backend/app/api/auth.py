@@ -46,13 +46,18 @@ def signup(user: UserCreate):
     }
 
 
+from fastapi.security import OAuth2PasswordRequestForm
+from fastapi import Depends
+
 @router.post("/login")
-def login(user: UserLogin):
+def login(
+    form_data: OAuth2PasswordRequestForm = Depends()
+):
 
     db: Session = SessionLocal()
 
     db_user = db.query(User).filter(
-        User.email == user.email
+        User.email == form_data.username
     ).first()
 
     if not db_user:
@@ -62,7 +67,7 @@ def login(user: UserLogin):
         )
 
     if not verify_password(
-        user.password,
+        form_data.password,
         db_user.hashed_password
     ):
         raise HTTPException(

@@ -1,8 +1,10 @@
 from beanie import Document
+from pydantic import BaseModel
+
 from typing import List
 
 
-class Detection(Document):
+class Detection(BaseModel):
     label: str
     confidence: float
     bbox: List[int]
